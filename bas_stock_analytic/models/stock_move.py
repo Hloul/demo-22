@@ -7,17 +7,17 @@ from odoo.tools.float_utils import float_is_zero, float_compare
 from datetime import datetime
 from collections import namedtuple, OrderedDict, defaultdict
 
-class AccountAnalyticLineIn(models.Model):
-    _inherit = "account.analytic.line"
-
-    tag_ids  = fields.Many2many('account.analytic.plan', string= 'Tag')
+#class AccountAnalyticLineIn(models.Model):
+#    _inherit = "account.analytic.line"
+#
+#    tag_ids  = fields.Many2many('account.analytic.plan', string= 'Tag')
 
 
 class StockMove(models.Model):
     _name = 'stock.move'
     _inherit = ['stock.move','analytic.mixin']
 
-    analytic_distribution = fields.Jason(string='Analytic')
+    analytic_distribution = fields.Json(string='Analytic')
 
     def _generate_valuation_lines_data(self, partner_id, qty, debit_value, credit_value, debit_account_id, credit_account_id, svl_id, description):
         # This method returns a dictionary to provide an easy extension hook to modify the valuation lines (see purchase for an example)
