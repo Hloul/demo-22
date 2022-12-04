@@ -25,7 +25,7 @@ class StockMove(models.Model):
         
         
         if debit_account_id != self.product_id.categ_id.property_stock_valuation_account_id.id:
-        debit_line_vals = {
+          debit_line_vals = {
             'name': description,
             'product_id': self.product_id.id,
             'quantity': qty,
@@ -36,9 +36,9 @@ class StockMove(models.Model):
             'credit': -debit_value if debit_value < 0 else 0,
             'account_id': debit_account_id,
             'analytic_distribution':self.analytic_distribution,  
-        }
+          }
         else:
-        debit_line_vals = {
+          debit_line_vals = {
             'name': description,
             'product_id': self.product_id.id,
             'quantity': qty,
@@ -48,11 +48,11 @@ class StockMove(models.Model):
             'debit': debit_value if debit_value > 0 else 0,
             'credit': -debit_value if debit_value < 0 else 0,
             'account_id': debit_account_id,
-        }
+          }
 
 
         if credit_account_id != self.product_id.categ_id.property_stock_valuation_account_id.id:
-        credit_line_vals = {
+          credit_line_vals = {
             'name': description,
             'product_id': self.product_id.id,
             'quantity': qty,
@@ -63,7 +63,7 @@ class StockMove(models.Model):
             'debit': -credit_value if credit_value < 0 else 0,
             'account_id': credit_account_id,
             'analytic_distribution':self.analytic_distribution,  
-        }
+          }
         else:
         credit_line_vals = {
             'name': description,
@@ -75,7 +75,7 @@ class StockMove(models.Model):
             'credit': credit_value if credit_value > 0 else 0,
             'debit': -credit_value if credit_value < 0 else 0,
             'account_id': credit_account_id,
-        }
+          }
 
 
         rslt = {'credit_line_vals': credit_line_vals, 'debit_line_vals': debit_line_vals}
