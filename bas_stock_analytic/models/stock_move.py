@@ -65,7 +65,7 @@ class StockMove(models.Model):
             'analytic_distribution':self.analytic_distribution,  
           }
         else:
-        credit_line_vals = {
+          credit_line_vals = {
             'name': description,
             'product_id': self.product_id.id,
             'quantity': qty,
