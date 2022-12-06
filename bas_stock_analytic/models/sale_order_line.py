@@ -7,7 +7,7 @@ from odoo.tools.float_utils import float_is_zero, float_compare
 from datetime import datetime
 from collections import namedtuple, OrderedDict, defaultdict
 
-_logger = logging.getLogger(__name__)
+
 
 
     
@@ -18,12 +18,9 @@ class SaleOrderLine(models.Model):
 
     def _prepare_procurement_values(self,group_id):
         res = super(SaleOrderLine,self)._prepare_procurement_values(group_id=group_id)
-        _logger.info('bas: self id %s',self.id)
-        _logger.info('bas: analyic_distribution %s',analytic_distribution)
         res.update({
                 'analytic_distribution': self.analytic_distribution,
             })
-        _logger.info('bas: res %s',res)
         return res
     
 
